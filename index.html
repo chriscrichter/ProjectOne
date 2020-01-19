@@ -1,48 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Food and Recipe Tracker</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="default.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div id="start-page">
-        <h1>Food and Recipe Tracker</h1>
-        <h1>Welcome Page</h1>
-        
-        <button id="button1">Search by Food</button>
+<!-- start header -->
+<div id="header">
+	<div id="logo">
+		<h1><a href="#">Food and Recipe Tracker</a></h1>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Search History</a></li>
+			<li><a href="#">Profile</a></li>
+			<li><a href="#">Contact </a></li>
+		</ul>
+	</div>
+</div>
 
-        <button id="button2">Search by Recipe</button>
-    </div>
-    <div id="search-for-recipe">
-        <h2>Search for Recipes</h2>
-        <label id="category-label">Select a Category</label>
-        <select id="category-dropdown">
+<!-- end header -->
+<!-- start page -->
+<div id="wrapper">
+	<div id="page">
+		<!-- start content -->
+		<div id="content">
+			<div class="post" id="start-page">
+				<p class="date"></p>
+				
+				<h2 class="title">Welcome to Our Website!</h2>
+				<div class="entry">
+					<p>In this app you are able to track food you eat and build recipes based on what you have available.  It will calculate nutrition information based on your inputs for both recipes and individual food items.</p>
+				</div>
+			</div>
+			<div class="post" id="search-for-recipe">
+				<p class="date"></p>
+				<h2 class="title">Search for Recipe</h2>
+				<div class="entry">
+					                    <div class="column is-6 is-offset-3">
+
+                        <h3 class="subtitle">
+                            Search for recipes by specific foods.
+                        </h3>
+                        <div class="box">
+                            <div class="field is-grouped">
+                                <p class="control is-expanded">
+                                <!--   <input class="input" type="text" id="calorie-input" size="30" placeholder="Enter foods here">  -->
+                                
+                                <label id="category-label">Select a Category</label>
+        <select id="category-dropdown" style="width: 150px;">
             <option class="category-choices"></option>
         </select>
+        <br>
         <label id="Ingredient-dropdown-label">Choose Ingredients</label>     
-        <select class="Ingredient-dropdown">
+        <select class="Ingredient-dropdown" style="width: 120px;">
             <option class="Ingredient-choices"></option>
         </select>
-        <select class="Ingredient-dropdown">
+        <select class="Ingredient-dropdown"style="width: 120px;">
             <option class="Ingredient-choices"></option>
         </select>
-        <select class="Ingredient-dropdown">
+        <select class="Ingredient-dropdown"style="width: 120px;">
             <option class="Ingredient-choices"></option>
         </select>
+        <br>
         <label>Input Calories</label>
-        <input id="calorie-input">
-        <button id="search-recipes">Search</button>
-    </div>
-    	<br>
-        <hr>
-    <div id="search-for-food">
-        <h2>Search for Recipes</h2>
-        <label>Enter Food</label>
-        <input id="food-input" size="40">
-        <button id="search-recipes">Search</button>
-    </div>
+        <input id="calorie-input" placeholder="Enter calories here">
+        							</p>
 
-</body>
+                                <p class="control">
+                                    <a class="button is-info">
+                                        Search
+                                    </a>
+                                </p>
+                            </div>                           
+                        </div>
+				</div>
+			</div>
+			<div class="post" id="search-for-food">
+				<p class="date"><b></b></p>
+				<h2 class="title">Search for Food</h2>
+				
+				<div class="entry">
+					                    <div class="column is-6 is-offset-3">
+
+                        <h3 class="subtitle">
+                            Search foods for calorie and nutrition information.
+                        </h3>
+                        <div class="box">
+                            <div class="field is-grouped">
+                                <p class="control is-expanded">
+                                    <input class="input" type="text" id="food-input" size="50" placeholder="Enter foods here">
+                                </p>
+                                <p class="control">
+                                    <a class="button is-info">
+                                        Search
+                                    </a>
+                                </p>
+                               
+                            </div>
+                            
+                            <hr>
+                        </div>
+                    
+                         <div class="newfact" id="newfact">
+
+          					</div>	
+                    </div>  
+				</div>
+			</div>
+		</div>
+		<!-- end content -->
+
+	</div>
+</div>
+<!-- end page -->
+<!-- start footer -->
+<div id="footer">
+<p id="legal"> &copy;2020 Marcia Catherine Chris&nbsp;&bull;&nbsp;All Rights Reserved
+	 </p>
+<!-- end footer -->
+</div>
+<div align=center></div></body>
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="food.js"></script>
 </html>
