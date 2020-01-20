@@ -46,7 +46,7 @@
 					                    <div class="column is-6 is-offset-3">
 
                         <h3 class="subtitle">
-                            Search for recipes by specific foods.
+                            Search for recipes by main ingredient.
                         </h3>
                         <div class="box">
                             <div class="field is-grouped">
@@ -58,23 +58,17 @@
             <option class="category-choices"></option>
         </select>
         <br>
-        <label id="Ingredient-dropdown-label">Choose Ingredients</label>     
-        <select class="Ingredient-dropdown" style="width: 120px;">
-            <option class="Ingredient-choices"></option>
-        </select>
-        <select class="Ingredient-dropdown"style="width: 120px;">
-            <option class="Ingredient-choices"></option>
-        </select>
-        <select class="Ingredient-dropdown"style="width: 120px;">
-            <option class="Ingredient-choices"></option>
-        </select>
+        <label id="Ingredient-dropdown-label">Input Main Ingredient</label>     
+        <input type="text" style="width: 120px;" id="ingredient">
+            
+        
         <br>
         <label>Input Calories</label>
         <input id="calorie-input" placeholder="Enter calories here">
         							</p>
 
                                 <p class="control">
-                                    <a class="button is-info">
+                                    <a class="button is-info" id="search-recipes">
                                         Search
                                     </a>
                                 </p>
@@ -127,6 +121,6 @@
 <!-- end footer -->
 </div>
 <div align=center></div></body>
- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
- <script src="food.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+<script src="food.js"></script>
 </html>
