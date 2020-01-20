@@ -13,48 +13,45 @@ $(document).ready(function() {
 
     factDiv.append(pOne);
 
-});
-
-
-// modal to display food info from Edamam
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-
-
   });
 
+
+  // modal to display food info from Edamam
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // on click event listener to search for recipes
   $('#search-recipes').on('click',function(){
     $('#page').attr('style','display:none');
        var food = $('#ingredient');
     //var diet = $('#diet-dropdown option:selected').val();
     //console.log(diet);
     searchForRecipes(food.val());
-})
-
+  })
+  //Edamam api request for search for recipes
   function searchForRecipes(food){
     var queryURL= "https://api.edamam.com/search?q=" + food + "&app_id=beba403d&app_key=207fb84f8fdcb91ab3f4bf804525946d"
     $.ajax({
@@ -80,7 +77,7 @@ window.onclick = function(event) {
             var fiber = $('<li>').text('Fiber: ' + Math.round(response.hits[i].recipe.totalNutrients.FIBTG.quantity) + ' ' + response.hits[i].recipe.totalNutrients.FIBTG.unit);
             var sugar = $('<li>').text('Sugar: ' + Math.round(response.hits[i].recipe.totalNutrients.SUGAR.quantity) + ' ' + response.hits[i].recipe.totalNutrients.SUGAR.unit);
             var protein = $('<li>').text('Protein: ' + Math.round(response.hits[i].recipe.totalNutrients.PROCNT.quantity) + ' ' + response.hits[i].recipe.totalNutrients.PROCNT.unit);
-
+            var saveRecipe = $('<button>').text('Save Recipe');
             var recipeLink = $('<a>').addClass('recipe-link').text('Click for recipe').attr('href', response.hits[i].recipe.url);
             console.log(response.hits[i].recipe.url)
             result.append(recipeName);
@@ -95,12 +92,13 @@ window.onclick = function(event) {
             nutrientsList.append(sugar);
             nutrientsList.append(protein);
             result.append(nutrientsList);
+            result.append(saveRecipe);
             result.append(recipeLink);
             resultsTable.append(result);
             recipeResults.append(resultsTable);
             $('#wrapper').append(recipeResults);
-        }
-        
+        }  
     })
-  }   
+  }  
 })  
+
