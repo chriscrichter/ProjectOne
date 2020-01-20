@@ -43,6 +43,7 @@ $(document).ready(function() {
     }
   }
 
+  // on click event listener to search for recipes
   $('#search-recipes').on('click',function(){
     $('#page').attr('style','display:none');
        var food = $('#ingredient');
@@ -50,7 +51,11 @@ $(document).ready(function() {
     //console.log(diet);
     searchForRecipes(food.val());
   })
+<<<<<<< HEAD
 
+=======
+  //Edamam api request for search for recipes
+>>>>>>> master
   function searchForRecipes(food){
     var queryURL= "https://api.edamam.com/search?q=" + food + "&app_id=beba403d&app_key=207fb84f8fdcb91ab3f4bf804525946d"
     $.ajax({
@@ -97,5 +102,6 @@ $(document).ready(function() {
             $('#wrapper').append(recipeResults);
         }  
     })
-  }   
+  }  
 })  
+
