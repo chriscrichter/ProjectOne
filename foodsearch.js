@@ -44,5 +44,4 @@ window.onclick = function(event) {
   }
 }
 
-  });
-})
+});
