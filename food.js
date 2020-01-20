@@ -1,18 +1,18 @@
 $(document).ready(function() {  
-  $.ajax({
-    url: "https://api.spoonacular.com/food/trivia/random?apiKey=6955b593214a4bbebdb0ce41be4872ad",
-    method: "GET"
-  }).then(function(response) {
+  // $.ajax({
+  //   url: "https://api.spoonacular.com/food/trivia/random?apiKey=6955b593214a4bbebdb0ce41be4872ad",
+  //   method: "GET"
+  // }).then(function(response) {
 
-    var factDiv = $(".newfact");
+  //   var factDiv = $(".newfact");
 
-    var fact = response.text;
+  //   var fact = response.text;
 
-    var pOne = $("<p>").text("Food fact: " + fact);
+  //   var pOne = $("<p>").text("Food fact: " + fact);
 
-    factDiv.append(pOne);
+  //   factDiv.append(pOne);
 
-  });
+  // });
 
   $('#search-recipes').on('click',function(){
     $('#page').attr('style','display:none');
