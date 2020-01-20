@@ -1,13 +1,14 @@
 $(document).ready(function() {  
 
+  // on click event listener to search for recipes
   $('#search-recipes').on('click',function(){
     $('#page').attr('style','display:none');
        var food = $('#ingredient');
     //var diet = $('#diet-dropdown option:selected').val();
     //console.log(diet);
     searchForRecipes(food.val());
-})
-
+  })
+  //Edamam api request for search for recipes
   function searchForRecipes(food){
     var queryURL= "https://api.edamam.com/search?q=" + food + "&app_id=beba403d&app_key=207fb84f8fdcb91ab3f4bf804525946d"
     $.ajax({
@@ -33,7 +34,7 @@ $(document).ready(function() {
             var fiber = $('<li>').text('Fiber: ' + Math.round(response.hits[i].recipe.totalNutrients.FIBTG.quantity) + ' ' + response.hits[i].recipe.totalNutrients.FIBTG.unit);
             var sugar = $('<li>').text('Sugar: ' + Math.round(response.hits[i].recipe.totalNutrients.SUGAR.quantity) + ' ' + response.hits[i].recipe.totalNutrients.SUGAR.unit);
             var protein = $('<li>').text('Protein: ' + Math.round(response.hits[i].recipe.totalNutrients.PROCNT.quantity) + ' ' + response.hits[i].recipe.totalNutrients.PROCNT.unit);
-
+            var saveRecipe = $('<button>').text('Save Recipe');
             var recipeLink = $('<a>').addClass('recipe-link').text('Click for recipe').attr('href', response.hits[i].recipe.url);
             console.log(response.hits[i].recipe.url)
             result.append(recipeName);
@@ -48,12 +49,12 @@ $(document).ready(function() {
             nutrientsList.append(sugar);
             nutrientsList.append(protein);
             result.append(nutrientsList);
+            result.append(saveRecipe);
             result.append(recipeLink);
             resultsTable.append(result);
             recipeResults.append(resultsTable);
             $('#wrapper').append(recipeResults);
-        }
-        
+        }  
     })
   }   
 })
