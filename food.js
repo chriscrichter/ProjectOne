@@ -20,7 +20,7 @@ $(document).ready(function() {
     //var diet = $('#diet-dropdown option:selected').val();
     //console.log(diet);
     searchForRecipes(food.val());
-})
+  })
 
   function searchForRecipes(food){
     var queryURL= "https://api.edamam.com/search?q=" + food + "&app_id=beba403d&app_key=207fb84f8fdcb91ab3f4bf804525946d"
