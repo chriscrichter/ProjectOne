@@ -78,7 +78,7 @@
 }
 
    // Home button
-  $('#about').on('click',function() {
+  $('#home').on('click',function() {
     location.reload(true);
   });
 
