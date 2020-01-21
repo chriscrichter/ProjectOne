@@ -14,6 +14,11 @@
   font-weight: normal;
 }
 
+.recipe-images{
+    height: 50px;
+    width: auto;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
