@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   // on click event listener to search for recipes
   $('#search-recipes').on('click',function(){
-    $('#page').attr('style','display:none');
+    $('#content').attr('style','display:none');
        var food = $('#ingredient');
     //var diet = $('#diet-dropdown option:selected').val();
     //console.log(diet);
@@ -54,7 +54,7 @@ $(document).ready(function() {
           saveRecipe.on('click', function(){
             event.preventDefault();
             var savedRecipes = [];
-            var recipe = response.hits[i].recipe.label;
+            var recipe = response.hits[i].recipe;
             console.log(recipe);
             if(localStorage.getItem('name')){
               savedRecipes = JSON.parse(localStorage.getItem('name'));
@@ -84,18 +84,31 @@ $(document).ready(function() {
   
   // on click to create search history page
   $('#search-history').on('click',function(){
-    $('#page').attr('style','display:none;');
-    $('.recipeResults').attr('style','display:none;');
+      $('#content').attr('style','display:none;');
+      $('.results').attr('style','display:none;');
+    
     populateSearchHistory();
   }) 
   // populate search history page
   function populateSearchHistory(){
+    
     var historyPage = $('<div>').addClass('history-page');
     var savedRecipes = JSON.parse(localStorage.getItem('name'));
-    $.each(savedRecipes,function(index,value){
-      var newRecipe = $('<li>').addClass('newRecipes').text(name.value);
-      historyPage.append(newRecipe);
-    })
+    var searchList = $('<td>').addClass('search-table');
+    for (let i = 0; i < savedRecipes.length; i++) {
+      var row = $('<tr>').addClass('search-row');
+      var newRecipe = $('<a>').addClass('searched-recipe').text(savedRecipes[i].label).addClass('recipe-link').attr('href',savedRecipes[i].url).attr('target','_blank');
+      row.append(newRecipe);
+      searchList.append(row);
+      historyPage.append(searchList);
+      
+    }
+    // $.each(savedRecipes,function(index,value){
+    //   var newRecipe = $('<a>').addClass('newRecipes');
+    //   newRecipe.text();
+    //   console.log(newRecipe);
+    //   historyPage.append(newRecipe);
+    // })
     $('#wrapper').append(historyPage);
   } 
 })  
