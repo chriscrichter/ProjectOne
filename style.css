@@ -1,3 +1,4 @@
+
 .nameFood {
   margin-top: 20px;
   margin-left: 80px;
@@ -12,6 +13,11 @@
   margin-left: 110px;
   font-size: 16px;
   font-weight: normal;
+}
+
+.recipe-images{
+    height: 50px;
+    width: auto;
 }
 
 /* The Modal (background) */
