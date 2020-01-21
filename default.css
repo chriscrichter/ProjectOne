@@ -259,14 +259,16 @@ a:hover {
 
 /* Footer */
 
-#wrapper2 {
+#wrapper2 {ed
 }
 
 #footer {
-	width: 940px;
+	position: fixed;
+    bottom: 0;
+	width: 100%;
 	margin: 0 auto;
 	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-bottom: 0;
 	text-transform: uppercase;
 	font-family: Tahoma, Arial, Helvetica, sans-serif;
 	color: #FFFFFF;
