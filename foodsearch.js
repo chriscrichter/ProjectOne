@@ -1,5 +1,5 @@
  $(document).ready(function() { 
- 
+
   // Food search on click event listener
   $('#search-food').on('click',function(){
     $('#page').attr('style','display:none');
