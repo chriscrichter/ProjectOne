@@ -91,8 +91,9 @@ $(document).ready(function() {
   // on click to create search history page
   $('#search-history').on('click',function(){
       $('#content').attr('style','display:none;');
+      $('#page').attr('style','display:block;')
       $('.results').attr('style','display:none;');
-    
+      $('.foodItem').attr('style','display:none;')
     populateSearchHistory();
   }) 
   // populate search history page
