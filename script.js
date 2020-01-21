@@ -1,0 +1,6 @@
+
+
+$("#about").click(function(){
+    
+
+   });

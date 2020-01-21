@@ -303,3 +303,33 @@ a:hover {
 	font-style: italic;
 	color: purple;
 }
+
+#aboutTitle{
+	
+	margin-left: 3rem;
+	margin-top:6rem;
+	font-weight: bold;
+	font-size: 2rem;
+}
+#aboutUs{
+	
+	font-size: 1rem;
+	margin: 2rem;
+}
+#img{
+	float:left;
+	margin-right: 3rem;
+	margin-left: 3rem;
+}
+.results-table{
+	margin:2rem;
+	float:left;
+}
+.results{
+	margin:2rem;
+}
+
+.recipe-images{
+	margin:1rem;
+	float:left;
+}
