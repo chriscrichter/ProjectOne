@@ -4,34 +4,43 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
 		<title>
 			Hungry Much?
-		</title>
-		<meta name="keywords" content="" /> <meta name="description" content="" /> <link href="default.css" rel="stylesheet" type="text/css" /> <link href="style.css" rel="stylesheet" type="text/css" /> 
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="keywords" content="" /> 
+    <meta name="description" content="" /> 
+    <!-- <link href="default.css" rel="stylesheet" type="text/css" />  -->
+    <link href="style.css" rel="stylesheet" type="text/css" /> 
+    
+
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js">
 		</script>
 	</head>
 	<body>
 <!-- start header -->
-		<div id="header">
-			<div id="logo">
-				<h1>
-					<a href="#">
-						Hungry Much?
-					</a>
-				</h1>
-	</div>
-	<div id="menu">
-		<ul>
-			<li class="active"><a href="#"id="home">Home</a></li>
-			<li><a href="#"id="about">About</a></li>
-			<li><a href="#" id ="search-history">Search History</a></li>
-			<li><a href="#" id="profile">Profile</a></li>
-			<li><a href="#" id="contact">Contact </a></li>
-		</ul>
-	</div>
-</div>
+    <header>
+      <div class="row">
+        <div class="col s12 m6">
+					<h1>
+						hungry much?
+          </h1>
+				</div>
+        <div class="col s12 m6">
+            <ul>
+              <li class="active"><a href="#"id="home">Home</a></li>
+              <li><a href="#"id="about">About</a></li>
+              <li><a href="#" id ="search-history">Search History</a></li>
+              <li><a href="#" id="profile">Profile</a></li>
+              <li><a href="#" id="contact">Contact </a></li>
+            </ul>
+        </div>
+      </div>
+    </header>
+  
+  
 <!-- end header -->
 <!-- start page -->
-<div id="wrapper">
+<div  class="container">
 	<div id="page">
 		<!-- start content -->
 		<div id="content">
@@ -58,11 +67,9 @@
 									<div class="field is-grouped">
 										<p class="control is-expanded">
 <!--   <input class="input" type="text" id="calorie-input" size="30" placeholder="Enter foods here">  -->
-											<br> 
-											<label id="Ingredient-dropdown-label">
-												Input Main Ingredient
-											</label>
-											<input type="text" style="width: 120px;" id="ingredient"> 
+											
+											
+											<input class="input" type="text" id="ingredient" size="50" placeholder="Enter main ingredient here"> 
 										</p>
 										<p class="control">
 											<button class="button is-info" id="search-recipes">
@@ -134,7 +141,7 @@
 					</div>
 <!-- end content -->
 				</div>
-    <div class="post" id="recipe-page" style="display: none;">
+    <div class="container" id="recipe-page" style="display: none;">
   </div>
 			</div>
 		</div>
