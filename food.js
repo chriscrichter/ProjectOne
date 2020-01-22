@@ -19,16 +19,19 @@ $(document).ready(function() {
         console.log(`RESPONSE.HITS-->`, response.hits);
         
         //var recipeResults = $('<div>').addClass('results');
-        var resultsTable = $('<td>').addClass('results-table');
+        var resultsTable = $('<table>').addClass('results-table');
 
         for (let i = 0; i < response.hits.length; i++) {
           var responseHit = response.hits[i];
           //var totalNutrients = response.hits[i].recipe.totalNutrients;
           var result = $('<tr>').addClass('result');
+          var resultColLeft = $('<td>').addClass('result-left');
+          var resultColCenter = $('<td>').addClass('result-center');
+          var resultColRight = $('<td>').addClass('result-right');
           var recipeName = $('<label>').addClass('recipe-names');
           var recipeImage =$('<img>').addClass('recipe-images').attr('src',responseHit.recipe.image);
           var diets = $('<p>').addClass('diets').text(`Diet and Health Labels: ${responseHit.recipe.dietLabels}, ${response.hits[i].recipe.healthLabels}`);
-          result.append(recipeImage);
+          resultColLeft.append(recipeImage);
           $('.recipe-img').append(recipeImage);
           recipeName.text(`Recipe Name: ${responseHit.recipe.label}`);
           var calories = $('<p>').addClass('calories').text('Total Calories: ' + Math.round(responseHit.recipe.calories));
@@ -40,15 +43,19 @@ $(document).ready(function() {
           var saveRecipe = $('<button>').text('Save Recipe');
           var recipeLink = $('<a>').addClass('recipe-link').text('Click for recipe').attr('href', responseHit.recipe.url);
           
-          result.append(recipeName);
+          resultColCenter.append(recipeName);
           
-          result.append(calories);
-          result.append(servings);
-          result.append(diets);
+          resultColCenter.append(calories);
+          resultColCenter.append(servings);
+          resultColCenter.append(diets);
           
-          result.append(renderNutrient(responseHit));
-          result.append(saveRecipe);
-          result.append(recipeLink);
+          resultColRight.append(renderNutrient(responseHit));
+          resultColCenter.append(saveRecipe);
+          resultColLeft.append(recipeLink);
+          result.append(resultColLeft);
+          result.append(resultColCenter);
+          result.append(resultColRight);
+          
           resultsTable.append(result);
           $('#recipe-page').append(resultsTable);
           //recipeResults.append(resultsTable);
