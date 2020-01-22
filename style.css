@@ -1,16 +1,14 @@
-
 .nameFood {
   margin-top: 20px;
   margin-left: 80px;
   padding-top: 40px;
   text-transform: capitalize;
   font-size: 18px;
-  font-weight: bold;
 }
 
 .foodItem {
   margin-top: 20px;
-  margin-left: 110px;
+  margin-left: 170px;
   font-size: 16px;
   font-weight: normal;
 }
