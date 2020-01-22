@@ -101,6 +101,8 @@ $(document).ready(function() {
       $('#page').attr('style','display:block;')
       $('#recipe-page').attr('style','display:none;');
       $('.foodItem').attr('style','display:none;')
+      $('#about-page').attr('style','display:none;');
+      $('#contact-page').attr('style','display:none;')
       $('.history-page').empty();
     populateSearchHistory();
   }) 
@@ -109,13 +111,17 @@ $(document).ready(function() {
     
     var historyPage = $('<div>').addClass('history-page');
     var savedRecipes = JSON.parse(localStorage.getItem('name'));
-    var searchList = $('<td>').addClass('search-table');
+    var searchList = $('<div>').addClass('search-table container');
     for (let i = 0; i < savedRecipes.length; i++) {
-      var row = $('<tr>').addClass('search-row');
+      var row = $('<div>').addClass('search-row row');
+      var colLeft = $('<div>').addClass('col m5');
+      var colRight = $('<div>').addClass('col m7');
       var img = $('<img>').addClass('saved-recipe-img').attr('src',savedRecipes[i].image);
       var newRecipe = $('<a>').addClass('searched-recipe').text(savedRecipes[i].label).addClass('recipe-link').attr('href',savedRecipes[i].url).attr('target','_blank');
-      row.append(img);
-      row.append(newRecipe);
+      row.append(colLeft);
+      row.append(colRight);
+      colLeft.append(img);
+      colRight.append(newRecipe);
       searchList.append(row);
       historyPage.append(searchList);
     
