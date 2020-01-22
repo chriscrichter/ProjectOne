@@ -114,7 +114,7 @@ $(document).ready(function() {
     var searchList = $('<div>').addClass('search-table container');
     for (let i = 0; i < savedRecipes.length; i++) {
       var row = $('<div>').addClass('search-row row');
-      var colLeft = $('<div>').addClass('col m5');
+      var colLeft = $('<div>').addClass('col m5 center-align');
       var colRight = $('<div>').addClass('col m7');
       var img = $('<img>').addClass('saved-recipe-img').attr('src',savedRecipes[i].image);
       var newRecipe = $('<a>').addClass('searched-recipe').text(savedRecipes[i].label).addClass('recipe-link').attr('href',savedRecipes[i].url).attr('target','_blank');
