@@ -17,54 +17,95 @@
 
             var foodDiv = $("<div class='foodItem'>");
             
-            $("#wrapper").append(foodDiv);
+            $(".modal-body").append(foodDiv);
 
-            
-            var foodSup = $('<h2>').text('Nutrition Facts')
-      		foodDiv.append(foodSup);
-            
             var foodName = $('<h3>').text('Food Name: ' + foodField.toUpperCase());
 			foodDiv.append(foodName);
 			
+			var amountServing = $("<p>").text("Amount Per Serving").css({"font-style":"italic"});
+            foodDiv.append(amountServing);
+			
             var valCalorie = response.calories;
-            var foodCalorie = $("<p>").text("Total Calories: " + Math.round(valCalorie));
+            var foodCalorie = $("<li>").text("Total Calories: " + Math.round(valCalorie));
             foodDiv.append(foodCalorie);
             
             if (response.totalNutrients.FAT) {
             var valFat = response.totalNutrients.FAT.quantity;
             var valFatUnit = response.totalNutrients.FAT.unit;
-            var foodFat = $("<p>").text("Total Fat: " + Math.round(valFat) + valFatUnit);
+            var foodFat = $("<li>").text("Total Fat: " + valFat.toFixed(2) + " " + valFatUnit);
             foodDiv.append(foodFat);
             }
             
             if (response.totalNutrients.CHOLE) {
             var valCholesterol = response.totalNutrients.CHOLE.quantity;
             var valCholesterolUnit = response.totalNutrients.CHOLE.unit;
-            var foodCholesterol = $("<p>").text("Total Cholesterol: " + Math.round(valCholesterol) + valCholesterolUnit);
+            var foodCholesterol = $("<li>").text("Total Cholesterol: " + valCholesterol.toFixed(2) + " " + valCholesterolUnit);
             foodDiv.append(foodCholesterol);
             }
             
             if (response.totalNutrients.NA) {
             var valSodium = response.totalNutrients.NA.quantity;
             var valSodiumUnit = response.totalNutrients.NA.unit;
-            var foodSodium = $("<p>").text("Total Sodium: " + Math.round(valSodium)  + valSodiumUnit);
+            var foodSodium = $("<li>").text("Total Sodium: " + valSodium.toFixed(2) + " " + valSodiumUnit);
             foodDiv.append(foodSodium);
             }
             
             if (response.totalNutrients.CHOCDF) {
             var valCarbohydrate = response.totalNutrients.CHOCDF.quantity;
             var valCarbohydrateUnit = response.totalNutrients.CHOCDF.unit;
-            var foodCarbohydrate = $("<p>").text("Total Carbohydrate: " + Math.round(valCarbohydrate)  + valCarbohydrateUnit);
+            var foodCarbohydrate = $("<li>").text("Total Carbohydrate: " + valCarbohydrate.toFixed(2) + valCarbohydrateUnit);
             foodDiv.append(foodCarbohydrate);
             }
             
             if (response.totalNutrients.PROCNT) {
             var valProtein = response.totalNutrients.PROCNT.quantity;
             var valProteinUnit = response.totalNutrients.PROCNT.unit;
-            var foodProtein = $("<p>").text("Total Protein: " + Math.round(valProtein) + valProteinUnit);
+            var foodProtein = $("<li>").text("Total Protein: " + valProtein.toFixed(2) + " " + valProteinUnit);
             foodDiv.append(foodProtein);
             }
-                           
+            
+            if (response.totalNutrients.CA) {
+            var valCalcium = response.totalNutrients.CA.quantity;
+            var valCalciumUnit = response.totalNutrients.CA.unit;
+            var foodCalcium = $("<li>").text("Total Calcium: " + valCalcium.toFixed(2) + " " + valCalciumUnit);
+            foodDiv.append(foodCalcium);
+            }
+                 
+        	if (response.totalNutrients.FE) {
+            var valIron = response.totalNutrients.FE.quantity;
+            var valIronUnit = response.totalNutrients.FE.unit;
+            var foodIron = $("<li>").text("Total Iron: " + valIron.toFixed(2) + " " + valIronUnit);
+            foodDiv.append(foodIron);
+            }
+            
+            if (response.totalNutrients.MG) {
+            var valMagnesium = response.totalNutrients.MG.quantity;
+            var valMagnesiumUnit = response.totalNutrients.MG.unit;
+            var foodMagnesium = $("<li>").text("Total Magnesium: " + " " + valMagnesium.toFixed(2) + valMagnesiumUnit);
+            foodDiv.append(foodMagnesium);
+            }
+          
+            if (response.totalNutrients.ZN) {
+            var valZinc = response.totalNutrients.ZN.quantity;
+            var valZincUnit = response.totalNutrients.ZN.unit;
+            var foodZinc = $("<li>").text("Total Zinc: " + valZinc.toFixed(2) + " " + valZincUnit);
+            foodDiv.append(foodZinc);
+            }
+            
+            if (response.totalNutrients.P) {
+            var valPhosphorus = response.totalNutrients.P.quantity;
+            var valPhosphorusUnit = response.totalNutrients.P.unit;
+            var foodPhosphorus = $("<li>").text("Total Phosphorus: " +  valPhosphorus.toFixed(2) + " " + valPhosphorusUnit);
+            foodDiv.append(foodPhosphorus);
+            }
+       
+            if (response.totalNutrients.K) {
+            var valPotassium = response.totalNutrients.K.quantity;
+            var valPotassiumUnit = response.totalNutrients.K.unit;
+            var foodPotassium = $("<li>").text("Total Potassium: " + valPotassium.toFixed(2) + " " + valPotassiumUnit);
+            foodDiv.append(foodPotassium);
+            }
+
     });
   };
   
