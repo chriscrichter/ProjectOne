@@ -334,10 +334,13 @@ a:hover {
 	float:left;
 }
 
-.recipe-link{
-	margin: 1rem;
+.contact-image{
+	width: 1rem;
+	height: auto;
+	margin: 2rem;
 }
 
-/* .recipe-names{
-	color: aqua;
-} */
+.con{
+	width: 100%;
+	
+}
