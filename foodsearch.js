@@ -1,10 +1,15 @@
  $(document).ready(function() { 
 
   // Food search on click event listener
-  $('#search-food').on('click',function(){
-    $('#page').attr('style','display:none');
+    $('#myBtn').on('click',function(){
+    //$('#search-food').on('click',function(){
+    //$('#content').attr('style','display:none');
+    $('.foodItem').attr('style','display:none');
        var foodField = $('#food-input');
+       
     searchForFood(foodField.val());
+    $("#food-input").val('');
+    
   })
   
   // Ajax food nutrition request/response from Edamam
@@ -155,5 +160,4 @@
   $('#home').on('click',function() {
     location.reload(true);
   });
-
-  });
+});
