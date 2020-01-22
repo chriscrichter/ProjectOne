@@ -156,8 +156,4 @@
   };
 };
 
-   // Home button
-  $('#home').on('click',function() {
-    location.reload(true);
-  });
 });
