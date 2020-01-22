@@ -2,7 +2,8 @@ $(document).ready(function() {
 
   // on click event listener to search for recipes
   $('#search-recipes').on('click',function(){
-    $('#page').attr('style','display:none');
+    $('#recipe-page').attr('style','display:block;')
+    $('#content').attr('style','display:none');
        var food = $('#ingredient');
     //var diet = $('#diet-dropdown option:selected').val();
     //console.log(diet);
@@ -15,50 +16,48 @@ $(document).ready(function() {
         url: queryURL,
         method: "GET"
     }).then(function(response){
-        console.log(response);
-        var recipeResults = $('<div>').addClass('results');
+        console.log(`RESPONSE.HITS-->`, response.hits);
+        
+        //var recipeResults = $('<div>').addClass('results');
         var resultsTable = $('<td>').addClass('results-table');
+
         for (let i = 0; i < response.hits.length; i++) {
+          var responseHit = response.hits[i];
+          //var totalNutrients = response.hits[i].recipe.totalNutrients;
           var result = $('<tr>').addClass('result');
           var recipeName = $('<label>').addClass('recipe-names');
-          var recipeImage =$('<img>').addClass('recipe-images').attr('src',response.hits[i].recipe.image);
-          var diets = $('<p>').addClass('diets').text(`Diet and Health Labels: ${response.hits[i].recipe.dietLabels}, ${response.hits[i].recipe.healthLabels}`);
+          var recipeImage =$('<img>').addClass('recipe-images').attr('src',responseHit.recipe.image);
+          var diets = $('<p>').addClass('diets').text(`Diet and Health Labels: ${responseHit.recipe.dietLabels}, ${response.hits[i].recipe.healthLabels}`);
           result.append(recipeImage);
-          recipeName.text(`Recipe Name: ${response.hits[i].recipe.label}`);
-          var calories = $('<p>').addClass('calories').text('Total Calories: ' + Math.round(response.hits[i].recipe.calories));
-          var servings = $('<p>').addClass('servings').text('Servings: ' + response.hits[i].recipe.yield);
-          var nutrientsList = $('<ul>').addClass('nutrient-list').text(`Total Nutrients`);
-          var fat = $('<li>').text('Fat: ' + Math.round(response.hits[i].recipe.totalNutrients.FAT.quantity) + ' '+ response.hits[i].recipe.totalNutrients.FAT.unit);
-          var saturatedFat = $('<li>').text('Saturated Fat: '+ Math.round(response.hits[i].recipe.totalNutrients.FASAT.quantity) + ' ' +response.hits[i].recipe.totalNutrients.FASAT.unit);
-          var carbs = $('<li>').text('Carbs: '+ Math.round(response.hits[i].recipe.totalNutrients.CHOCDF.quantity) + ' ' + response.hits[i].recipe.totalNutrients.CHOCDF.unit);
-          var fiber = $('<li>').text('Fiber: ' + Math.round(response.hits[i].recipe.totalNutrients.FIBTG.quantity) + ' ' + response.hits[i].recipe.totalNutrients.FIBTG.unit);
-          var sugar = $('<li>').text('Sugar: ' + Math.round(response.hits[i].recipe.totalNutrients.SUGAR.quantity) + ' ' + response.hits[i].recipe.totalNutrients.SUGAR.unit);
-          var protein = $('<li>').text('Protein: ' + Math.round(response.hits[i].recipe.totalNutrients.PROCNT.quantity) + ' ' + response.hits[i].recipe.totalNutrients.PROCNT.unit);
+          $('.recipe-img').append(recipeImage);
+          recipeName.text(`Recipe Name: ${responseHit.recipe.label}`);
+          var calories = $('<p>').addClass('calories').text('Total Calories: ' + Math.round(responseHit.recipe.calories));
+          var servings = $('<p>').addClass('servings').text('Servings: ' + responseHit.recipe.yield);
+          //var nutrientsList = $('<ul>').addClass('nutrient-list').text(`Total Nutrients`);
+         
+          
+
           var saveRecipe = $('<button>').text('Save Recipe');
-          var recipeLink = $('<a>').addClass('recipe-link').text('Click for recipe').attr('href', response.hits[i].recipe.url);
-          console.log(response.hits[i].recipe.url)
+          var recipeLink = $('<a>').addClass('recipe-link').text('Click for recipe').attr('href', responseHit.recipe.url);
+          
           result.append(recipeName);
           
           result.append(calories);
           result.append(servings);
           result.append(diets);
-          nutrientsList.append(fat);
-          nutrientsList.append(saturatedFat);
-          nutrientsList.append(carbs);
-          nutrientsList.append(fiber);
-          nutrientsList.append(sugar);
-          nutrientsList.append(protein);
-          result.append(nutrientsList);
+          
+          result.append(renderNutrient(responseHit));
           result.append(saveRecipe);
           result.append(recipeLink);
           resultsTable.append(result);
-          recipeResults.append(resultsTable);
-          $('#wrapper').append(recipeResults);
+          $('#recipe-page').append(resultsTable);
+          //recipeResults.append(resultsTable);
+          //$('#wrapper').append(recipeResults);
 
           saveRecipe.on('click', function(){
             event.preventDefault();
             var savedRecipes = [];
-            var recipe = response.hits[i].recipe.label;
+            var recipe = response.hits[i].recipe;
             console.log(recipe);
             if(localStorage.getItem('name')){
               savedRecipes = JSON.parse(localStorage.getItem('name'));
@@ -66,25 +65,57 @@ $(document).ready(function() {
             savedRecipes.push(recipe);
             localStorage.setItem('name', JSON.stringify(savedRecipes));
             
-
-          })
-        }  
-    })
-  }
+            })  
+          }
+        }) 
+      }   
+  function renderNutrient(responseHit){
+    var nutrientArr =['FAT', 'FASAT', 'CHOCDF', 'FIBTG', 'SUGAR', 'PROCNT']
+    console.log(`RESPONSE.HITS-->`, responseHit);
+    var nutrientsList = $('<ul>').addClass('nutrient-list').text(`Total Nutrients`);
+    for (let i = 0; i < nutrientArr.length; i++) {
+      if (responseHit.recipe.totalNutrients[nutrientArr[i]]){
+        console.log(`totatlNutes at i ${nutrientArr[i]}`);
+         
+          var nutrient = $('<li>').text(responseHit.recipe.totalNutrients[nutrientArr[i]].label + ': '+ Math.round(responseHit.recipe.totalNutrients[nutrientArr[i]].quantity) +' '+ responseHit.recipe.totalNutrients[nutrientArr[i]].unit);
+          nutrientsList.append(nutrient);
+          
+          
+      }
+    }
+    console.log(nutrientsList);
+    return nutrientsList;
+    
+  }  
+  
   // on click to create search history page
   $('#search-history').on('click',function(){
-    $('#page').attr('style','display:none;');
-    $('.recipeResults').attr('style','display:none;');
+      $('#content').attr('style','display:none;');
+      $('#page').attr('style','display:block;')
+      $('#recipe-page').attr('style','display:none;');
+      $('.foodItem').attr('style','display:none;')
     populateSearchHistory();
   }) 
   // populate search history page
   function populateSearchHistory(){
+    
     var historyPage = $('<div>').addClass('history-page');
     var savedRecipes = JSON.parse(localStorage.getItem('name'));
-    $.each(savedRecipes,function(index,value){
-      var newRecipe = $('<li>').addClass('newRecipes').text(name.value);
-      historyPage.append(newRecipe);
-    })
+    var searchList = $('<td>').addClass('search-table');
+    for (let i = 0; i < savedRecipes.length; i++) {
+      var row = $('<tr>').addClass('search-row');
+      var newRecipe = $('<a>').addClass('searched-recipe').text(savedRecipes[i].label).addClass('recipe-link').attr('href',savedRecipes[i].url).attr('target','_blank');
+      row.append(newRecipe);
+      searchList.append(row);
+      historyPage.append(searchList);
+      
+    }
+    // $.each(savedRecipes,function(index,value){
+    //   var newRecipe = $('<a>').addClass('newRecipes');
+    //   newRecipe.text();
+    //   console.log(newRecipe);
+    //   historyPage.append(newRecipe);
+    // })
     $('#wrapper').append(historyPage);
   } 
 })  

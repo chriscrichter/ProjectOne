@@ -1,9 +1,25 @@
-<<<<<<< HEAD
+
+.nameFood {
+  margin-top: 20px;
+  margin-left: 80px;
+  padding-top: 40px;
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.foodItem {
+  margin-top: 20px;
+  margin-left: 110px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
 .recipe-images{
     height: 50px;
     width: auto;
 }
-=======
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -79,4 +95,7 @@
   color: white;
   bottom: 0;
 }
->>>>>>> master
+
+#aboutTitle{
+  
+}

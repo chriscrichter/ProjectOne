@@ -5,6 +5,7 @@
 <title>Food and Recipe Tracker</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="default.css" rel="stylesheet" type="text/css" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -18,8 +19,8 @@
 	</div>
 	<div id="menu">
 		<ul>
-			<li class="active"><a href="#">Home</a></li>
-			<li><a href="#" id="about">About</a></li>
+			<li class="active"><a href="#"id="home">Home</a></li>
+			<li><a href="#"id="about">About</a></li>
 			<li><a href="#" id ="search-history">Search History</a></li>
 			<li><a href="#" id="profile">Profile</a></li>
 			<li><a href="#" id="contact">Contact </a></li>
@@ -36,7 +37,7 @@
 				<p class="date"></p>
 				
 				<h2 class="title">Welcome to Our Website!</h2>
-				<div class="entry">
+				<div class="entry" id="aboutUs">
 					<p>In this app you are able to track food you eat and build recipes based on what you have available.  It will calculate nutrition information based on your inputs for both recipes and individual food items.</p>
 				</div>
 			</div>
@@ -127,7 +128,11 @@
 		</div>
 		<!-- end content -->
 
-	</div>
+  </div>
+  <div class="post" id="recipe-page" style="display: none;">
+   
+    
+  </div>
 </div>
 </div>
 <!-- end page -->
@@ -140,14 +145,10 @@
 
 <div align=center></div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
- 
-  
- <script src="food.js"></script>
- <!--<script src="foodsearch.js"></script>
- <script src="script.js"></script>-->
 
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="food.js"></script>
+  <script src="foodsearch.js"></script>
+  <script src="script.js"></script>
 
 </html>
