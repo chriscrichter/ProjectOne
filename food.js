@@ -19,30 +19,30 @@ $(document).ready(function() {
         console.log(`RESPONSE.HITS-->`, response.hits);
         
         //var recipeResults = $('<div>').addClass('results');
-        var resultsTable = $('<table>').addClass('results-table');
+        var resultsTable = $('<div>').addClass('containers');
 
         for (let i = 0; i < response.hits.length; i++) {
           var responseHit = response.hits[i];
           //var totalNutrients = response.hits[i].recipe.totalNutrients;
-          var result = $('<tr>').addClass('result');
-          var resultColLeft = $('<td>').addClass('result-left');
-          var resultColCenter = $('<td>').addClass('result-center');
-          var resultColRight = $('<td>').addClass('result-right');
+          var resultRow = $('<div>').addClass('row');
+          var resultColLeft = $('<div>').addClass('col m3');
+          var resultColCenter = $('<div>').addClass('col m5');
+          var resultColRight = $('<div>').addClass('col m4');
           var recipeName = $('<label>').addClass('recipe-names');
           var recipeImage =$('<img>').addClass('recipe-images').attr('src',responseHit.recipe.image);
           var diets = $('<p>').addClass('diets').text(`Diet and Health Labels: ${responseHit.recipe.dietLabels}, ${response.hits[i].recipe.healthLabels}`);
-          resultColLeft.append(recipeImage);
-          $('.recipe-img').append(recipeImage);
-          recipeName.text(`Recipe Name: ${responseHit.recipe.label}`);
+          
+          //$('.recipe-img').append(recipeImage);
+          recipeName.text(`${responseHit.recipe.label}`);
           var calories = $('<p>').addClass('calories').text('Total Calories: ' + Math.round(responseHit.recipe.calories));
           var servings = $('<p>').addClass('servings').text('Servings: ' + responseHit.recipe.yield);
           //var nutrientsList = $('<ul>').addClass('nutrient-list').text(`Total Nutrients`);
          
           
 
-          var saveRecipe = $('<button>').text('Save Recipe');
-          var recipeLink = $('<a>').addClass('recipe-link').text('Click for recipe').attr('href', responseHit.recipe.url);
-          
+          var saveRecipe = $('<button>').addClass('save-recipe').text('Save Recipe');
+          var recipeLink = $('<a>').addClass('recipe-link').text('Click for recipe').attr('href', responseHit.recipe.url).attr('target','_blank');
+          recipeLink.append(recipeImage);
           resultColCenter.append(recipeName);
           
           resultColCenter.append(calories);
@@ -52,11 +52,11 @@ $(document).ready(function() {
           resultColRight.append(renderNutrient(responseHit));
           resultColCenter.append(saveRecipe);
           resultColLeft.append(recipeLink);
-          result.append(resultColLeft);
-          result.append(resultColCenter);
-          result.append(resultColRight);
+          resultRow.append(resultColLeft);
+          resultRow.append(resultColCenter);
+          resultRow.append(resultColRight);
           
-          resultsTable.append(result);
+          resultsTable.append(resultRow);
           $('#recipe-page').append(resultsTable);
           //recipeResults.append(resultsTable);
           //$('#wrapper').append(recipeResults);
@@ -101,6 +101,7 @@ $(document).ready(function() {
       $('#page').attr('style','display:block;')
       $('#recipe-page').attr('style','display:none;');
       $('.foodItem').attr('style','display:none;')
+      $('.history-page').empty();
     populateSearchHistory();
   }) 
   // populate search history page
@@ -111,11 +112,13 @@ $(document).ready(function() {
     var searchList = $('<td>').addClass('search-table');
     for (let i = 0; i < savedRecipes.length; i++) {
       var row = $('<tr>').addClass('search-row');
+      var img = $('<img>').addClass('saved-recipe-img').attr('src',savedRecipes[i].image);
       var newRecipe = $('<a>').addClass('searched-recipe').text(savedRecipes[i].label).addClass('recipe-link').attr('href',savedRecipes[i].url).attr('target','_blank');
+      row.append(img);
       row.append(newRecipe);
       searchList.append(row);
       historyPage.append(searchList);
-      
+    
     }
     // $.each(savedRecipes,function(index,value){
     //   var newRecipe = $('<a>').addClass('newRecipes');
@@ -123,7 +126,7 @@ $(document).ready(function() {
     //   console.log(newRecipe);
     //   historyPage.append(newRecipe);
     // })
-    $('#wrapper').append(historyPage);
+    $('#page').append(historyPage);
   } 
 })  
 

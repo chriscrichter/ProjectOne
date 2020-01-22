@@ -1,9 +1,21 @@
+html, body {
+  width: 100%;
+  height: auto;
+}
+
+body{
+  background-color: #e8f0f2;
+}
 .nameFood {
   margin-top: 20px;
   margin-left: 170px;
   padding-top: 40px;
   text-transform: capitalize;
   font-size: 18px;
+}
+header {
+  background-color: #A3CFD9;
+  color: white;
 }
 
 .foodItem {
@@ -14,8 +26,9 @@
 }
 
 .recipe-images{
-    height: 50px;
+    height: 150px;
     width: auto;
+    
 }
 
 /* The Modal (background) */
@@ -83,10 +96,10 @@
 }
 
 .modal-body {
-  padding: 2px 16px;}
+  padding: 2px 16px;
   height: 200px;
   max-height: 100%;
-
+}
 .modal-footer {
   padding: 2px 16px;
   background-color: #A3CFD9;
@@ -94,6 +107,71 @@
   bottom: 0;
 }
 
-#aboutTitle{
-  
+p {
+  font-size: 15px;
+}
+
+.nutrient-list {
+  font-size: 1.1em;
+  display: block;
+  font-weight: bold;
+}
+li {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.recipe-name {
+  font-size: 35px;
+}
+
+.subtitle {
+  font-size: 1.2em;
+}
+
+#ingredient-dropdown-label {
+  color: black;
+  font-size: 1em;
+}
+
+#logo {
+  padding: 0;
+}
+#menu {
+  margin-top:0;
+}
+
+#header {
+  width: 100%;
+}
+
+ul {
+  display:flex;
+}
+
+.container {
+  margin:auto;
+}
+#recipe-page {
+ width: 100%;
+}
+
+button {
+   background-color: lightgrey;
+   border-radius: .2em;
+}
+
+.recipe-names {
+  font-size: 1.2em;
+  color: black;
+
+}
+
+img{
+  height: 150px;
+  width: auto;
+}
+.searched-recipe {
+  margin-bottom: 50px;
+  padding-left: 10px;
 }
