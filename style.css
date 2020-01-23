@@ -3,7 +3,7 @@ html, body {
   height: auto;
 }
 
-body{
+body {
   background-color: #e8f0f2;
 }
 
@@ -52,6 +52,10 @@ h2 title {
    font-size: 18px;
 }
 
+h3 {
+   font-size: 28px;
+}
+
 .subtitle {
   font-size: 1.2em;
   margin-top: 18px;
@@ -68,7 +72,8 @@ h2 title {
 	color: #4d6e9b;
 	margin-right: 20px;
 	margin-top: 65px;
-}
+  }
+
 
 #menubar li {
    margin-left: 16px;
@@ -76,7 +81,7 @@ h2 title {
    color: #4d6e9b;
 }
 
-.buttonmain {
+  .buttonmain {
    background-color: #4d6e9b;
    border: none;
    border-radius: 8px;
@@ -282,6 +287,10 @@ button {
 }
 
 .button:focus {     
+    background-color: darkgrey;    
+}
+
+button.save-recipe:focus {     
     background-color: darkgrey;    
 }
 
