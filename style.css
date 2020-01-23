@@ -20,8 +20,11 @@ header {
 	padding-top: 2px;
 	text-align: left;
 	font-weight: bold;
-	font-size: 64px;
+  font-size: 64px;
+  margin-top: auto;
 }
+
+
 
 .title-main {
 	margin: 0;
@@ -314,3 +317,18 @@ img{
 	font-style: italic;
 	color: purple;
 }
+
+
+@media screen and (max-width: 640px) {
+  #menubar {
+    margin-top: 15px;
+    margin-left: 10px;
+  }
+
+  #headertitle {
+    font-size:45px;
+  }
+  .buttonmain {
+    font-size: 10px;
+  }
+} 
