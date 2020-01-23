@@ -84,7 +84,7 @@ h3 {
    color: #4d6e9b;
 }
 
-  .buttonmain {
+.buttonmain {
    background-color: #4d6e9b;
    border: none;
    border-radius: 8px;
@@ -118,7 +118,7 @@ h3 {
 
 #footer {
 	position: fixed;
-    bottom: 0;
+  bottom: 0;
 	width: 100%;
 	height: 40px;
 	text-align: center;
