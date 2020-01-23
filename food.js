@@ -110,6 +110,7 @@ $(document).ready(function() {
   function populateSearchHistory(){
     
     var historyPage = $('<div>').addClass('history-page');
+    var searchTitle = $('<h2>').addClass('title-main').text('Search History');
     var savedRecipes = JSON.parse(localStorage.getItem('name'));
     var searchList = $('<div>').addClass('search-table container');
     for (let i = 0; i < savedRecipes.length; i++) {
@@ -123,6 +124,7 @@ $(document).ready(function() {
       colLeft.append(img);
       colRight.append(newRecipe);
       searchList.append(row);
+      historyPage.append(searchTitle);
       historyPage.append(searchList);
     
     }
