@@ -11,8 +11,6 @@
     <meta name="description" content="" /> 
     <!--<link href="default.css" rel="stylesheet" type="text/css" /> -->
     <link href="style.css" rel="stylesheet" type="text/css" /> 
-    
-
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js">
 		</script>
 	</head>
@@ -21,33 +19,30 @@
     <header>
       <div class="row">
         <div class="col s12 m6">
-					<h1>
+			<h1 id="headertitle">
 						hungry much?
-          </h1>
+          	</h1>
 				</div>
         <div class="col s12 m6">
-            <ul>
-              <li class="active"><a href="#"id="home">Home</a></li>
-              <li><a href="#"id="about">About</a></li>
-              <li><a href="#" id ="search-history">Search History</a></li>
-              <li><a href="#" id="profile">Profile</a></li>
-              <li><a href="#" id="contact">Contact </a></li>
+            <ul id="menubar">
+            
+            <a href="#" class="buttonmain" id="home">Home</a>
+            <a href="#" class="buttonmain" id="about">About</a>
+            <a href="#" class="buttonmain" id="search-history">Search History</a>
+            <a href="#" class="buttonmain" id="profile">Profile</a>
+            <a href="#" class="buttonmain" id="contact">Contact</a>
             </ul>
         </div>
       </div>
     </header>
-  
-  
 <!-- end header -->
 <!-- start page -->
 <div  class="container">
 	<div id="page">
 		<!-- start content -->
 		<div id="content">
-			<div class="post" id="start-page">
-				<p class="date"></p>
-				
-				<h2 class="title">Welcome to Our Website!</h2>
+			<div class="post" id="start-page">			
+				<h2 class="title-main">Welcome to Our Website!</h2>
 				<div class="entry" id="aboutUs">
 					<p>In this app you are able to track food you eat and build recipes based on what you have available.  It will calculate nutrition information based on your inputs for both recipes and individual food items.</p>
 						</div>
@@ -67,9 +62,7 @@
 									<div class="field is-grouped">
 										<p class="control is-expanded">
 <!--   <input class="input" type="text" id="calorie-input" size="30" placeholder="Enter foods here">  -->
-											
-											
-											<input class="input" type="text" id="ingredient" size="50" placeholder="Enter main ingredient here"> 
+								<input class="input" type="text" id="ingredient" size="50" placeholder="Enter main ingredient here"> 
 										</p>
 										<p class="control">
 											<button class="button is-info" id="search-recipes">
@@ -81,10 +74,6 @@
 							</div>
 						</div>
 						<div class="post" id="search-for-food">
-							<p class="date">
-								<b>
-								</b>
-							</p>
 							<h2 class="title">
 								Search for Food
 							</h2>
@@ -104,9 +93,33 @@
                                         Search
                                     </button> 
                                     -->
-												<button id="myBtn">
+												<button class="button" id="myBtn">
 													Search
 												</button>
+											</p>
+										</div>
+										<br>
+										<hr> 
+									</div>
+									<div class="newfact" id="newfact">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+<!-- end content -->
+				</div>
+    <div class="container" id="recipe-page" style="display: none;">
+  </div>
+			</div>
+		</div>
+
+<!-- end content -->
+	<!-- end footer -->
+		</div>
+		<div align="center">
+		</div>
+		<!-- modal structure -->
 												<div id="myModal" class="modal">
 													<div class="modal-content">
 														<div class="modal-header">
@@ -123,40 +136,27 @@
 															<p>
 															</p>
 														</div>
-														<div class="modal-footer">
+														<!-- <div class="modal-footer">
 															<h3>
 															</h3>
-														</div>
+														</div>-->
 													</div>
-												</div>
-											</p>
-										</div>
-										<hr> 
-									</div>
-									<div class="newfact" id="newfact">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-<!-- end content -->
-				</div>
-    <div class="container" id="recipe-page" style="display: none;">
-  </div>
-			</div>
-		</div>
 
-<!-- end page -->
+												</div>
+
+<!-- end modal -->
 <!-- start footer -->
 		<div id="footer">
 			<p id="legal">
-				&copy;2020 Marcia Catherine Chris&nbsp;&bull;&nbsp;All Rights Reserved 
+				<center>&copy;2020 Marcia Catherine Chris&nbsp;&bull;&nbsp;All Rights Reserved</center>
 			</p>
-<!-- end footer -->
-		</div>
-		<div align="center">
-		</div>
+			</div>
+		<br>
+		<br>
+		<br>
+		<br>
 	</body>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
 	</script>
 	<script src="food.js">
