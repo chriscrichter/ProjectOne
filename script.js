@@ -38,10 +38,11 @@ $(document).ready(function() {
       var aboutContainer = $('<div>').addClass('container');
       var aboutTitle = $('<h2>').addClass('title').text('About Us');
       var imgLogo = $('<img>').addClass('logo-img').attr('src','images/download.jpeg');
-      var aboutDescription = $('<p>').text('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil sunt voluptates, praesentium incidunt sit ea delectus quam deserunt earum pariatur harum id accusantium quod, laboriosam, suscipit porro unde hic voluptatibus.')
+      var aboutDescription = $('<p>').text('For our project we built an app where users are able to look up food they eat and find recipes based on main ingredients they have.  It provides nutritional information for individual food items and also for recipes that users find through the app.')
       aboutContainer.append(imgLogo);
-      aboutTitle.append(aboutDescription);
+      
       aboutContainer.append(aboutTitle);
+      aboutContainer.append(aboutDescription);
       $('#about-page').append(aboutContainer);
    }
    
