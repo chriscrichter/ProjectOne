@@ -112,6 +112,8 @@
     });
   };
   
+  
+  /*
    // Spoonacular api request for food fact
   $.ajax({
     url: "https://api.spoonacular.com/food/trivia/random?apiKey=6955b593214a4bbebdb0ce41be4872ad",
@@ -127,6 +129,7 @@
     factDiv.append(pOne);
 
 });
+*/
 
 
 // Modal to display food info from Edamam
