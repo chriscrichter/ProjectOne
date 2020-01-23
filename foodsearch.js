@@ -1,9 +1,7 @@
  $(document).ready(function() { 
-
-  // Food search on click event listener
+ 
+  // Food search function when search button is clicked
     $('#myBtn').on('click',function(){
-    //$('#search-food').on('click',function(){
-    //$('#content').attr('style','display:none');
     $('.foodItem').attr('style','display:none');
        var foodField = $('#food-input');
        
@@ -114,7 +112,6 @@
     });
   };
   
-/*
    // Spoonacular api request for food fact
   $.ajax({
     url: "https://api.spoonacular.com/food/trivia/random?apiKey=6955b593214a4bbebdb0ce41be4872ad",
@@ -130,8 +127,6 @@
     factDiv.append(pOne);
 
 });
-*/
-
 
 
 // Modal to display food info from Edamam
