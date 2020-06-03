@@ -1,7 +1,15 @@
-# ProjectOne
+# hungry much?
 
 ## Project Name
 hungry much?
+
+Find recipes and nutritional information for the foods you are hungry for.
+
+<img src="images/hungrymuchscreen.png" width="600" height="350">
+
+<img src="images/hungrymuchsearch.png" width="600" height="350">
+
+<img src="images/hungrymuchsaved.png" width="600" height="350">
 
 ## Team Members
 Catherine You, Chris Richter, Marcia Adler
@@ -29,6 +37,6 @@ As a health conscious person, I want to know what I am putting in my body during
 • Add ability to track fitness activities and calories burned.
 
 ## Links
-• Deployed: https://marciaadler.github.io/ProjectOne
+• Deployed: https://chriscrichter.github.io/hungry-much/
 
-• GitHub repo: https://github.com/MarciaAdler/ProjectOne
+• GitHub repo: https://github.com/chriscrichter/hungry-much/
