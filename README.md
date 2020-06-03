@@ -5,7 +5,7 @@ hungry much?
 
 Find recipes and nutritional information for the foods you are hungry for.
 
-<img src="images/hungrymuchscreen.png" width="600" height="350">
+<img src="images/hungrymuch.png" width="600" height="350">
 
 <img src="images/hungrymuchsearch.png" width="600" height="350">
 
